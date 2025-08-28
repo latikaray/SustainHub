@@ -1,0 +1,19 @@
+# netlify.toml
+
+[build]
+  # Build command: install Supabase CLI, push migrations, then build the app
+  command = "npm install -g supabase && supabase db push && npm run build"
+  # Folder where your built app will be published
+  publish = "dist" # change to "build" if using CRA
+
+[build.environment]
+  # Directly add your Supabase project keys
+  SUPABASE_URL = "https://your-project.supabase.co"
+  SUPABASE_ANON_KEY = "your-anon-key"
+  SUPABASE_SERVICE_KEY = "your-service-role-key" # needed for migrations
+  NODE_VERSION = "20" # optional, match your project Node version
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
