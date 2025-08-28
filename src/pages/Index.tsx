@@ -3,8 +3,6 @@ import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { RegistrationForm, type FormData } from "@/components/RegistrationForm";
 import { IndustryDashboard } from "@/components/IndustryDashboard";
-import { WasteClassifier } from "@/components/WasteClassifier";
-import { DemoImageTester } from "@/components/DemoImageTester";
 import { Footer } from "@/components/Footer";
 import { useSupabaseRecommendations } from '@/hooks/useSupabaseRecommendations';
 import { useAuth } from '@/hooks/useAuth';
@@ -98,3 +96,4 @@ const Index = () => {
 };
 
 export default Index;
+
