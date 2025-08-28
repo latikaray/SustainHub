@@ -39,61 +39,49 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
-      <HeroSection onGetStarted={handleGetStarted} />
-      
-      {user && (
-        <>
-          <section id="registration" className="py-16 px-4">
-            <div className="container mx-auto">
-              <RegistrationForm onSubmit={handleFormSubmit} />
-            </div>
-          </section>
+  <Navbar />
+  <HeroSection onGetStarted={handleGetStarted} />
 
-          <section id="classifier" className="py-16 px-4 bg-muted/30">
-            <div className="container mx-auto">
-      <WasteClassifier />
-      
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <DemoImageTester />
-        </div>
-      </section>
-            </div>
-          </section>
-        </>
-      )}
+  {user && (
+    <section id="registration" className="py-16 px-4">
+      <div className="container mx-auto">
+        <RegistrationForm onSubmit={handleFormSubmit} />
+      </div>
+    </section>
+  )}
 
-      {currentStep === 'dashboard' && user && (
-        <section id="dashboard" className="py-16 px-4 bg-background">
-          <div className="container mx-auto">
-            {isLoading ? (
-              <div className="max-w-4xl mx-auto text-center">
-                <Card className="p-8">
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div className="animate-spin w-12 h-12 border-4 border-primary border-t-transparent rounded-full mx-auto"></div>
-                      <h3 className="text-xl font-semibold">Generating AI Recommendations...</h3>
-                      <p className="text-muted-foreground">
-                        Analyzing your waste data and finding optimal trading opportunities
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            ) : (
-              recommendations && formData && (
-                <IndustryDashboard formData={formData} recommendations={recommendations} />
-              )
-            )}
+  {user && currentStep === 'dashboard' && (
+    <section id="dashboard" className="py-16 px-4 bg-background">
+      <div className="container mx-auto">
+        {isLoading ? (
+          <div className="max-w-4xl mx-auto text-center">
+            <Card className="p-8">
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="animate-spin w-12 h-12 border-4 border-primary border-t-transparent rounded-full mx-auto"></div>
+                  <h3 className="text-xl font-semibold">Generating AI Recommendations...</h3>
+                  <p className="text-muted-foreground">
+                    Analyzing your waste data and finding optimal trading opportunities
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
-        </section>
-      )}
-      
-      <Footer />
-    </div>
+        ) : (
+          recommendations && formData && (
+            <IndustryDashboard formData={formData} recommendations={recommendations} />
+          )
+        )}
+      </div>
+    </section>
+  )}
+
+  <Footer />
+</div>
+
   );
 };
 
 export default Index;
+
 
