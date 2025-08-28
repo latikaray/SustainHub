@@ -1,0 +1,7 @@
+project_id = "xirmvpbkaxiifpuupklk"
+
+[functions.ai-recommendations]
+verify_jwt = false
+
+[functions.classify-waste]
+verify_jwt = false
